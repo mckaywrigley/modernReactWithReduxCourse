@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Comment from './Comment';
 
 class Post extends Component {
     constructor() {
