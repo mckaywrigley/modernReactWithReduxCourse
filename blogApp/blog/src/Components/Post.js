@@ -15,9 +15,9 @@ class Post extends Component {
                 <h2>{this.props.title}</h2>
                 <h3>{this.props.name}</h3>
                 <p>{this.props.text}</p>
-                <Comment name={'David'} text={'Great post!'}/>
-                <Comment name={'Michael'} text={'Very insightful!'}/>
-                <Comment name={'Joe'} text={'Wonderful read!'}/>
+                <Comment name='David' text='Great post!'/>
+                <Comment name='Michael' text='Very insightful!'/>
+                <Comment name='Joe' text='Wonderful read!'/>
             </>
         );
     };
