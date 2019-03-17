@@ -12,9 +12,9 @@ class PostList extends Component {
     render() {
         return (
             <>
-                <Post />
-                <Post />
-                <Post />
+                <Post name={'Mckay'} title={'HTML'} text={'The noun of web-dev.'}/>
+                <Post name={'Mckay'} title={'CSS'} text={'The adjective of web dev.'}/>
+                <Post name={'Mckay'} title={'JavaScript'} text={'The verb of web dev.'}/>
             </>
         );
     };
