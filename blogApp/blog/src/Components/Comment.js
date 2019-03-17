@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Comment extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
 
         };
@@ -11,8 +11,8 @@ class Comment extends Component {
     render() {
         return (
             <>
-                <h3>Name</h3>
-                <p>Comment</p>
+                <h3>{this.props.name}</h3>
+                <p>{this.props.text}</p>
             </>
         );
     };

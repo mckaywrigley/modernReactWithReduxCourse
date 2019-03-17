@@ -14,9 +14,9 @@ class Post extends Component {
             <>
                 <h2>Post Title</h2>
                 <p>Post Content</p>
-                <Comment />
-                <Comment />
-                <Comment />
+                <Comment name={'David'} text={'Great post!'}/>
+                <Comment name={'Michael'} text={'Very insightful!'}/>
+                <Comment name={'Joe'} text={'Wonderful read!'}/>
             </>
         );
     };
