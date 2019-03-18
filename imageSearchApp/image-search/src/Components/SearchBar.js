@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-    onInputChange() {
+    constructor() {
+        super();
+        this.state = {
+            term: ''
+        }
+    }
 
+    onInputChange = e => {
+        this.setState({ 
+            term: e.target.value 
+        });
+        console.log(e.target.value);
     }
 
     render() {
