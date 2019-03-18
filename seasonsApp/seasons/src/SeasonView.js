@@ -5,7 +5,8 @@ class SeasonView extends Component {
         super(props);
         this.state = {
             lat: null,
-            lon: null
+            lon: null,
+            errMessage: ''
         };
     };
 
@@ -18,7 +19,9 @@ class SeasonView extends Component {
                     lon: position.coords.longitude
                 });
             },
-            (err) => console.log(err)
+            (err) => {
+                this.setState({ errMessage: err.message });
+            }
         );
 
         return (
