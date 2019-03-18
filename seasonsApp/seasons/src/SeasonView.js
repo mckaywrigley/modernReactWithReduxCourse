@@ -4,7 +4,8 @@ class SeasonView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            lat: null
+            lat: null,
+            lon: null
         };
     };
 
@@ -12,7 +13,10 @@ class SeasonView extends Component {
 
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
-                this.setState({ lat: position.coords.latitude });
+                this.setState({ 
+                    lat: position.coords.latitude, 
+                    lon: position.coords.longitude
+                });
             },
             (err) => console.log(err)
         );
@@ -21,6 +25,7 @@ class SeasonView extends Component {
             <div className="seasonView">
                 <h1>Seasons</h1>
                 <p>Latitude: {this.state.lat}</p>
+                <p>Longitude: {this.state.lon}</p>
             </div>
         );
     };
