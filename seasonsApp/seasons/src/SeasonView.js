@@ -12,14 +12,6 @@ class SeasonView extends Component {
 
     componentDidMount() {
         console.log('Component did mount!');
-    }
-
-    componentDidUpdate() {
-        console.log('Component did update!');
-    }
-
-    render() {
-
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
                 this.setState({ 
@@ -31,8 +23,26 @@ class SeasonView extends Component {
                 this.setState({ errMessage: err.message });
             }
         );
+    };
 
-        if(this.state.errMessage && !this.state.lat) {
+    componentDidUpdate() {
+        console.log('Component did update!');
+        
+    };
+
+
+    render() {
+        const getSeason = (lat, month) => {
+            if(month > 2 && month < 9) {
+                return lat > 0 ? 'Summer' : 'Winter';
+            } else {
+                return lat > 0 ? 'Winter' : 'Summer';
+            }
+        };
+
+        const season = getSeason(this.state.lat, new Date().getMonth());
+
+         if(this.state.errMessage && !this.state.lat) {
             return (
                 <div className="seasonView">
                 <h1>Seasons</h1>
@@ -47,6 +57,7 @@ class SeasonView extends Component {
                 <h1>Seasons</h1>
                 <p>Latitude: {this.state.lat}</p>
                 <p>Longitude: {this.state.lon}</p>
+                <p>Season: {season}</p>
             </div>
             );
         }
