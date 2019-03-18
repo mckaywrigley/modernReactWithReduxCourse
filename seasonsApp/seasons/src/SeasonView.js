@@ -24,13 +24,32 @@ class SeasonView extends Component {
             }
         );
 
-        return (
-            <div className="seasonView">
+        if(this.state.errMessage && !this.state.lat) {
+            return (
+                <div className="seasonView">
+                <h1>Seasons</h1>
+                <p>{this.state.errMessage}</p>
+            </div>
+            );
+        }
+
+        if(!this.state.errMessage && this.state.lat) {
+            return (
+                <div className="seasonView">
                 <h1>Seasons</h1>
                 <p>Latitude: {this.state.lat}</p>
                 <p>Longitude: {this.state.lon}</p>
             </div>
-        );
+            );
+        }
+
+        if(!this.state.errMessage && !this.state.lat) {
+            return (
+                <div className="seasonView">
+                    <p>Loading...</p>
+                </div>
+            );
+        }
     };
 };
 
