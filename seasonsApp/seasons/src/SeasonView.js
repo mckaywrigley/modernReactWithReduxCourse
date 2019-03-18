@@ -10,6 +10,14 @@ class SeasonView extends Component {
         };
     };
 
+    componentDidMount() {
+        console.log('Component did mount!');
+    }
+
+    componentDidUpdate() {
+        console.log('Component did update!');
+    }
+
     render() {
 
         window.navigator.geolocation.getCurrentPosition(
