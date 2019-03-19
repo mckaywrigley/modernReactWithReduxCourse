@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import youtube from './apis/youtube';
 import SearchBar from './Components/SearchBar';
 
 class App extends Component {
   render() {
     return (
-      <div className="app">
-        <h1>Video Search App</h1>
+      <div className="app ui container">
         <SearchBar />
       </div>
     );
