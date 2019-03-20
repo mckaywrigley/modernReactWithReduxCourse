@@ -1,4 +1,5 @@
-// Action Creator
+// Action Creators
+
 const createPolicy = (name, amount) => {
     return {
         // Pay attention to naming convention
