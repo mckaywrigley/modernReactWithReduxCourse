@@ -5,9 +5,12 @@ import SongList from './Components//SongList';
 
 const App = () => {
     return (
-        <div>
-            <h1>Song App</h1>
-            <SongList />
+        <div className="ui container grid">
+            <div className="ui row">
+                <div className="column eight wide">
+                    <SongList />
+                </div>
+            </div>
         </div>
     );
 };
