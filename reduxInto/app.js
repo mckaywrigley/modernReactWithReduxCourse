@@ -19,3 +19,13 @@ const deletePolicy = (name) => {
         }
     }
 }
+
+const createClaim = (name, amountToCollect) => {
+    return {
+        type: 'CREATE_CLAIM',
+        payload: {
+            name: name,
+            amountToCollect: amountToCollect
+        }
+    }   
+}
