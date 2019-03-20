@@ -3,10 +3,9 @@ import VideoItem from './VideoItem';
 
 const VideoList = ({ videos }) => {
     return (
-        <div className="videoList">
+        <div className="videoList ui relaxed divided list">
             {
                 videos.map(video => {
-                    console.log(video);
                     return (
                         <VideoItem 
                             key={video.id.videoId}
