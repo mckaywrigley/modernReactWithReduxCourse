@@ -18,4 +18,30 @@ const accounting = (bagOfMoney = 100, action) => {
     }
 
     return bagOfMoney;
+};
+
+const policies = (listOfPolicies = [], action) => {
+    if (action.type === 'CREATE_POLICY') {
+        return [...listOfPolicies, action.payload.name];
+    } else if (action.type === 'DELETE_POLICY') {
+        return listOfPolicies.filter(name => {
+            return name !== action.payload.name;
+        });
+    }
+
+    return listOfPolicies;
 }
+
+
+// Pulls from Redux
+const { createStore, combineReducers } = Redux;
+
+// Combines Reducers
+const ourDepartments = combineReducers({
+    accounting: accounting,
+    claimsHistory: claimsHistory,
+    policies, policies
+});
+
+// Creates store passing in combined reducers
+const store = createStore(ourDepartments);
