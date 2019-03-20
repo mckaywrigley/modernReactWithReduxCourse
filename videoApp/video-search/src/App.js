@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import youtube from './apis/youtube';
 import SearchBar from './Components/SearchBar';
+import VideoList from './Components/VideoList';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      videos: []
+    };
+  };
 
   onTermSubmit = async term => {
     const res = await youtube.get('/search', {
@@ -10,7 +17,7 @@ class App extends Component {
         q: term
       }
     });
-    console.log(res.data);
+    this.setState({ videos: res.data.items })
   };
 
   render() {
@@ -18,6 +25,9 @@ class App extends Component {
       <div className="app ui container">
         <SearchBar 
           onFormSubmit={this.onTermSubmit}
+        />
+        <VideoList 
+          videos={this.state.videos}
         />
       </div>
     );
