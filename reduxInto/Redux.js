@@ -1,3 +1,57 @@
+/* 
+
+Redux Flow
+
+1. To change state we call an action creator.
+2. Which produces an action.
+3. That gets fed to dispatch.
+4. Which forwards the action to reducers.
+5. Which creates new state.
+
+ */
+
+
+
+
+// Action Creators
+
+const createPolicy = (name, amount) => {
+    return {
+        // Pay attention to naming convention
+        type: 'CREATE_POLICY',
+        // Values come from parameterss
+        payload: {
+            name: name,
+            amount: amount
+        }
+    };
+}
+
+const deletePolicy = (name) => {
+    return {
+        type: 'DELETE_POLICY',
+        payload: {
+            name: name
+        }
+    }
+}
+
+const createClaim = (name, amountToCollect) => {
+    return {
+        type: 'CREATE_CLAIM',
+        payload: {
+            name: name,
+            amountToCollect: amountToCollect
+        }
+    }   
+}
+
+
+
+
+
+
+
 // Reducers
 
 // 1st param sets initial state
@@ -33,6 +87,8 @@ const policies = (listOfPolicies = [], action) => {
 }
 
 
+
+
 // Pulls from Redux
 const { createStore, combineReducers } = Redux;
 
@@ -44,4 +100,14 @@ const ourDepartments = combineReducers({
 });
 
 // Creates store passing in combined reducers
-const store = createStore(ourDepartments);
+const store = createStore(ourDepartments); 
+
+
+
+
+
+// Creates action from createPolicy action creator
+const action = createPolicy('Mckay', 20);
+
+store.dispatch(action);
+console.log(store.getState());
