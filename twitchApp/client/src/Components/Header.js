@@ -1,9 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
-            Header
+        <div className="ui secondary pointing menu">
+            <Link to="/" className="item">
+                Twitch Clone
+            </Link>
+            <div className="righ menu">
+                <Link to="/" className="item">
+                    All Streams
+                </Link>
+            </div>
         </div>
     );
 }
