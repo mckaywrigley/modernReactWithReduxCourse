@@ -1,11 +1,18 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import ResourceList from './components/ResourceList';
 
-export default class App extends Component {
-    render() {
-        return (
+const App = () => {
+    const [resource, setResource] = useState('posts');
+
+    return (
+        <div>
             <div>
-                App
+                <button onClick={() => setResource('posts')} >Posts</button>
+                <button onClick={() => setResource('todos')} >Todos</button>
             </div>
-        )
-    }
+            <ResourceList  resource={resource} />
+        </div>
+    )
 }
+
+export default App;
